@@ -63,6 +63,7 @@ $(document).ready(function(){
         post = item.post;
         $('.post_modal .post_modal_text').val(post.text + '\n\n @id' + post.signer);
         $('.post_modal .post_modal_attachments').val(post.attachments.join('\n'));
+        $('.post_modal .post_modal_date').text(' ' + (new Date(post.date * 1000)).toLocaleDateString() + ' ');
     };
     var show_post_modal = function(item){
         item = item || shown_posts.splice(0, 1)[0];

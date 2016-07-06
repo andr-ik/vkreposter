@@ -71,7 +71,7 @@ AppAsset::register($this);
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">Разместить пост</h4>
+                <p class="modal-title">Разместить пост (<span class="post_modal_date"></span>)</p>
             </div>
             <div class="modal-body row">
                 <div class="col-xs-7 modal-sidebar-right">
