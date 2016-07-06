@@ -51,10 +51,21 @@ class VKontakteOAuth2Service extends BaseVKontakteOAuth2Service
 
         if (!empty($stopWords = $model->getStopWords())) {
             $stopWordsRegExp = "/(" . (implode('|', (array_map(function($item){ return preg_quote($item); }, $stopWords)))) . ")/i";
+        }
 
-            foreach ($response['response']['items'] as $i => $item) {
-                if (preg_match($stopWordsRegExp, $item['text'])) {
-                    unset($response['response']['items'][$i]);
+        foreach ($response['response']['items'] as $i => $item) {
+            if (isset($stopWordsRegExp) && preg_match($stopWordsRegExp, $item['text'])) {
+                unset($response['response']['items'][$i]);
+            }
+
+            // если это группа и нету подписи -> то удаляем
+            if ($item['owner_id'] < 0 && !isset($item['signer_id'])) {
+                unset($response['response']['items'][$i]);
+            }else{
+                if($item['owner_id'] < 0){
+                    $response['response']['items'][$i]['signer'] = $item['signer_id'];
+                }else{
+                    $response['response']['items'][$i]['signer'] = $item['from_id'];
                 }
             }
         }

@@ -10,6 +10,7 @@ use app\widgets\AttachmentsVideoWidget;
      data-owner_id="<?= $model['owner_id']; ?>"
      data-from_id="<?= $model['from_id']; ?>"
      data-date="<?= $model['date']; ?>"
+     data-signer="<?= $model['signer']; ?>"
 >
     <label>
     <input type="checkbox" class="row_checkbox">

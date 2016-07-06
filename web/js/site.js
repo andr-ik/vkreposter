@@ -24,6 +24,7 @@ $(document).ready(function(){
             from_id: element.data('from_id'),
             text: element.find('.row__title').text().trim(),
             date: element.data('date'),
+            signer: element.data('signer'),
             attachments: $.map(element.find('.attachment'), function (attachment) {
                 return $(attachment).data('attachment');
             })
@@ -60,7 +61,7 @@ $(document).ready(function(){
     var shown_posts = [];
     var set_post_modal = function(item){
         post = item.post;
-        $('.post_modal .post_modal_text').val(post.text);
+        $('.post_modal .post_modal_text').val(post.text + '\n\n @id' + post.signer);
         $('.post_modal .post_modal_attachments').val(post.attachments.join('\n'));
     };
     var show_post_modal = function(item){
