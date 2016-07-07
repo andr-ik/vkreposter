@@ -263,3 +263,7 @@ a.desc:after {
 .owner_id_select{
     width: 100%;
 }
+
+.row_date{
+    margin-top: 10px;
+}

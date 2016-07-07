@@ -32,10 +32,13 @@ use app\widgets\AttachmentsVideoWidget;
                     'attachments' => $model['attachments']
                 ]); ?>
             <?php endif; ?>
+            <div class="row_date">
+                <?= gmdate('d.m.Y h:m:s', $model['date']); ?>
+            </div>
         </div>
         <div class="panel-footer">
             <div class="row">
-                <div class="col-xs-6 pull-left row_social">
+                <div class="col-xs-9 pull-left row_social">
                     <div class="row_social_item">
                         <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                         <?= $model['likes']['count']; ?>
